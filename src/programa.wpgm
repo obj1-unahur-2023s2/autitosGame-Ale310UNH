@@ -1,6 +1,31 @@
 import wollok.game.*
+import autos.*
 
 program miPrimerWollokGame {
-	// que arranque el juego!
+	// configurar el tablero
+	game.height(12)
+	game.width(12)
+	game.title("Hermoso juego")
+	game.ground("paredLadrillos3.jpg")
+	
+	// agregar el corsa al tablero
+	corsa.position(game.at(4, 7))
+	game.addVisual(corsa)
+	
+	keyboard.up().onPressDo( {
+		corsa.arriba()
+	} )
+	keyboard.down().onPressDo( {
+		corsa.abajo()
+	} )
+	keyboard.right().onPressDo( {
+		corsa.derecha()
+	} )
+	keyboard.left().onPressDo( {
+		corsa.izquierda()
+	} )
+	
+	
+	
 	game.start()
 }
