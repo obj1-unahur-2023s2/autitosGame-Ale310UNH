@@ -11,10 +11,20 @@ object corsa {
 	
 	
 	method arriba() {
-		position = position.up(1)
+		if(position.y() < game.height() - 1 ) {
+			position = position.up(1)
+		}
+		else {
+			position = game.at(position.x(), 0)
+		}
 	}
 	method abajo() {
-		position = position.down(1)
+		if(position.y() > 0 ) {
+			position = position.down(1)
+		}
+		else {
+			position = game.at(position.x(), game.height() - 1)
+		}
 	}
 	method derecha() {
 		if(position.x() < game.width() -1 ) {
@@ -26,7 +36,12 @@ object corsa {
 		
 	}
 	method izquierda() {
-		position = position.left(1)
+		if(position.x() > 0 ) {
+			position = position.left(1)
+		}
+		else {
+			position = game.at(game.width() -1, position.y())
+		}
 	}
 }
 
